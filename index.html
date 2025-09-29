@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DS Minifigs • Loja</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-circle" id="store-initials">
+        <img src="logo.png" alt="DS Minifigs Logo" />
+      </div>
+      <div>
+        <h1 class="store-name">DS Minifigs</h1>
+        <p class="tagline">minifigures colecionáveis — não oficiais</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <input id="search" type="search" placeholder="Pesquisar minifigs..." aria-label="Pesquisar produtos" />
+      <button id="theme-toggle" title="Trocar tema">🌙</button>
+      <button id="cart-btn" aria-label="Abrir carrinho">🛒 <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+   <section id="hero" class="hero">
+  <div class="hero-inner">
+    <h2>Bem-vindo à DS Minifigs</h2>
+    <p>Peças únicas, customizadas e perfeitas para colecionar.</p>
+    <a href="#catalog" class="btn-primary">Ver produtos</a>
+  </div>
+</section>
+
+
+
+    <section class="banner-rotativo">
+      <div class="banner" id="banner1">Promoção de Star Wars!</div>
+      <div class="banner" id="banner2">Minifigs Marvel em destaque!</div>
+      <div class="banner" id="banner3">Tiragens limitadas!</div>
+    </section>
+
+    <section id="catalog" class="catalog">
+      <div class="catalog-header">
+        <h3>Catálogo</h3>
+        <div class="filters">
+          <label for="sort">Ordenar:</label>
+          <select id="sort">
+            <option value="default">Padrão</option>
+            <option value="price-asc">Preço ↑</option>
+            <option value="price-desc">Preço ↓</option>
+            <option value="name-asc">Nome A→Z</option>
+          </select>
+          <label for="category">Categoria:</label>
+          <select id="category">
+            <option value="all">Todas</option>
+            <option value="Animes">Animes</option>
+            <option value="Star Wars">Star Wars</option>
+            <option value="Marvel">Marvel</option>
+            <option value="DC">DC</option>
+          </select>
+          <label for="promo-only">
+            <input type="checkbox" id="promo-only" /> Só promoções
+          </label>
+        </div>
+      </div>
+      <div id="product-grid" class="product-grid">
+        <!-- Produtos via JS -->
+      </div>
+    </section>
+
+    <section class="about">
+      <h3>Sobre a Loja</h3>
+      <div class="about-box">
+        <p>
+          <strong>DS Minifigs</strong> nasceu da paixão por colecionar e customizar minifigures. Aqui você encontra peças exclusivas, feitas para colecionadores que buscam algo diferente e especial.
+        </p>
+        <p>
+          Trabalhamos com tiragens limitadas e estoque reduzido — cada peça é única. Entre em contato para encomendas ou customizações personalizadas!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal carrinho -->
+  <div id="cart-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel" role="dialog" aria-label="Carrinho de compras">
+      <button id="close-cart" class="close-cart" aria-label="Fechar carrinho">✕</button>
+      <h4>Seu Carrinho</h4>
+      <ul id="cart-items" class="cart-items"></ul>
+      <div class="cart-footer">
+        <div class="totals">
+          <span>Total:</span>
+          <strong id="cart-total">R$ 0,00</strong>
+        </div>
+        <div class="cart-actions">
+          <button id="clear-cart" class="btn-outline">Esvaziar</button>
+          <button id="checkout" class="btn-primary">Finalizar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PIX -->
+  <div id="pix-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel" role="dialog" aria-label="Pagamento PIX">
+      <button class="close-cart" onclick="closePix()">✕</button>
+      <h4>Pagamento via PIX</h4>
+      <p>Escaneie o QR Code abaixo com seu app bancário para pagar:</p>
+      <img id="pix-qrcode" src="" alt="QR Code PIX" class="pix-qrcode">
+      <!-- Código Copia e Cola -->
+<div class="pix-code-container">
+  <label for="pixCode">Código PIX (copia e cola):</label>
+  <textarea id="pixCode" readonly></textarea>
+  <button onclick="copiarPix()">Copiar código</button>
+</div>
+
+      <p>Após o pagamento, confirme seu pedido clicando no botão abaixo:</p>
+      <button class="btn-primary" onclick="sendWhatsappOrder()">Confirmar no WhatsApp</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="footer-year"></span> DS Minifigs — Loja não oficial</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
