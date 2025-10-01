@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --bg-dark: #0f1724;
   --bg-light: #f5f7fa;
@@ -476,4 +477,484 @@ body.light .site-footer {
   text-transform: uppercase;
   z-index: 10;
 }
+=======
+:root {
+  --bg-dark: #0f1724;
+  --bg-light: #f5f7fa;
+  --card-dark: #0b1220;
+  --card-light: #ffffff;
+  --text-dark: #e6eef6;
+  --text-light: #111827;
+  --muted-dark: #9aa6b2;
+  --muted-light: #555;
+  --accent: #f59e0b;
+  --glass-dark: rgba(255, 255, 255, 0.03);
+  --glass-light: rgba(0, 0, 0, 0.05);
+  --maxwidth: 1100px;
+  --gap: 18px;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* tema */
+body.dark {
+  background: linear-gradient(180deg, #071029 0%, #02101b 100%);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+.site-header {
+  max-width: var(--maxwidth);
+  margin: 18px auto;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--muted-dark);
+}
+
+body.light .tagline {
+  color: var(--muted-light);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-actions input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: var(--glass-dark);
+  color: inherit;
+  min-width: 200px;
+}
+
+body.light .header-actions input {
+  background: var(--glass-light);
+}
+
+.header-actions button {
+  border: none;
+  cursor: pointer;
+  background: var(--glass-dark);
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: inherit;
+}
+
+body.light .header-actions button {
+  background: var(--glass-light);
+}
+
+/* hero */
+.hero {
+  max-width: var(--maxwidth);
+  margin: 20px auto;
+  padding: 32px;
+  border-radius: 14px;
+  text-align: center;
+
+  background-size: cover;
+  background-position: center;
+  min-height: 140px;
+  background-color: var(--glass-dark); /* fallback */
+}
+
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #071018;
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  cursor: pointer;
+}
+
+body.light .btn-outline {
+  border: 1px solid #ccc;
+}
+
+/* catalog */
+.catalog {
+  max-width: var(--maxwidth);
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+.card {
+  background: var(--card-dark);
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.light .card {
+  background: var(--card-light);
+  border: 1px solid #eee;
+}
+
+.product-thumb {
+  height: 200px;
+  border-radius: 10px;
+  background: #0b1220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-dark);
+  overflow: hidden;
+}
+
+body.light .product-thumb {
+  background: #ddd;
+  color: var(--muted-light);
+}
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.product-thumb img.loaded {
+  opacity: 1;
+}
+
+/* Preço e promoções */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.new-price {
+  color: red;
+  font-weight: 700;
+}
+
+.badge-promo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #f59e0b;
+  color: #071018;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+/* sobre */
+.about {
+  max-width: var(--maxwidth);
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.about-box {
+  background: var(--glass-dark);
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+body.light .about-box {
+  background: var(--glass-light);
+}
+
+.about h3 {
+  margin-bottom: 12px;
+}
+
+/* cart modal */
+.cart-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.cart-modal.show {
+  display: flex;
+}
+
+.cart-panel {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-dark);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+body.light .cart-panel {
+  background: var(--card-light);
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  color: var(--muted-dark);
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+body.light .close-cart {
+  color: var(--muted-light);
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.3s;
+}
+
+.cart-item:hover {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+body.light .cart-item {
+  border: 1px solid #ddd;
+}
+
+.cart-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+/* footer */
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted-dark);
+}
+
+body.light .site-footer {
+  color: var(--muted-light);
+}
+
+/* banners rotativos */
+.banner-rotativo {
+  max-width: var(--maxwidth);
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  height: 140px;
+}
+
+.banner-rotativo .banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.banner-rotativo .banner.active {
+  opacity: 1;
+}
+
+/* countdown promoções */
+.countdown {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f59e0b;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* PIX QR CODE */
+.pix-qrcode {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 12px auto;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* mobile */
+@media (max-width: 520px) {
+  .header-actions input {
+    display: none;
+  }
+  .logo-circle {
+    width: 52px;
+    height: 52px;
+  }
+  .banner-rotativo {
+    height: 100px;
+  }
+  .banner-rotativo .banner {
+    font-size: 16px;
+  }
+  .cart-thumb {
+    width: 32px;
+    height: 32px;
+  }
+}
+.pix-code-container {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.pix-code-container textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--muted-light);
+}
+
+.pix-code-container button {
+  margin-top: 8px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pix-code-container button:hover {
+  opacity: 0.9;
+}
+.badge-preorder {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  z-index: 10;
+}
+>>>>>>> 21da7061215240eba0f2ea14bfc33dfc920a9e9d
   
