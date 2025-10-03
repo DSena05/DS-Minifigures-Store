@@ -35,7 +35,22 @@ const banners = [
   { img: "fundo.png", text: "Kits Especiais DS Minifigs!" }
 ];
 
-let currentBanner = 0;
+let currentBanner = 0; // global
+
+function initHeroBanner(){
+  const hero = document.getElementById("hero");
+  
+  function showBanner(){
+    if(!hero) return;
+    hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
+    hero.querySelector("h2").textContent = banners[currentBanner].text;
+    currentBanner = (currentBanner + 1) % banners.length;
+  }
+
+  showBanner();
+  setInterval(showBanner, 5000);
+}
+
 
 // ===============================
 // Inicialização
