@@ -1,4 +1,3 @@
-
 // Configurações
 const STORE_INITIALS = "DS";
 const STORE_NAME = "DS Minifigs";
@@ -75,7 +74,6 @@ function renderProducts(list) {
   lazyLoadImages();
 }
 
-
 // Eventos do card
 function setupCardEvents() {
   document.querySelectorAll(".add").forEach(btn => btn.addEventListener("click", e => addToCart(e.target.dataset.id)));
@@ -94,7 +92,7 @@ function addToCart(id) {
   updateCart();
 }
 
-// Atualiza carrinho
+// Atualiza carrinho com desconto progressivo
 function updateCart() {
   const count = document.getElementById("cart-count");
   if(count) count.textContent = cart.reduce((s,i)=>s+i.qty,0);
@@ -103,11 +101,13 @@ function updateCart() {
   if(!list) return;
   list.innerHTML = "";
   let total=0;
+  let itemCount=0;
 
   cart.forEach(it=>{
     const p = products.find(x=>x.id===it.id);
     if(!p) return;
     total += p.price*it.qty;
+    itemCount += it.qty;
     const li = document.createElement("li");
     li.className = "cart-item";
     li.innerHTML = `<div><strong>${p.title}</strong><br>Qtd: ${it.qty}<br>Subtotal: R$ ${(p.price*it.qty).toFixed(2).replace(".",",")}</div>
@@ -115,7 +115,27 @@ function updateCart() {
     list.appendChild(li);
   });
 
-  document.getElementById("cart-total").textContent = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+  // ===============================
+  // Desconto progressivo
+  // ===============================
+  let desconto = 0;
+  if(itemCount >= 5){
+    desconto = total * 0.30; // 30% se 5 ou mais itens
+  } else if(itemCount >= 3){
+    desconto = total * 0.15; // 15% se 3 ou 4 itens
+  }
+  const totalFinal = total - desconto;
+
+  const totalDiv = document.getElementById("cart-total");
+  if(desconto > 0){
+    totalDiv.innerHTML = `
+      <div>Subtotal: R$ ${total.toFixed(2).replace(".",",")}</div>
+      <div>Desconto: -R$ ${desconto.toFixed(2).replace(".",",")}</div>
+      <strong>Total: R$ ${totalFinal.toFixed(2).replace(".",",")}</strong>
+    `;
+  } else {
+    totalDiv.textContent = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+  }
 
   document.querySelectorAll(".remove").forEach(btn=>btn.addEventListener("click", e=>{
     cart=cart.filter(i=>i.id!==e.target.dataset.id);
@@ -127,20 +147,18 @@ function updateCart() {
 // Hero/banner rotativo
 function initHeroBanner(){
   const hero = document.getElementById("hero");
-let currentBanner = 0;
+  let currentBanner = 0;
 
-function showBanner(){
-  if(!hero) return;
-  hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
-  hero.querySelector("h2").textContent = banners[currentBanner].text;
-  currentBanner = (currentBanner + 1) % banners.length;
+  function showBanner(){
+    if(!hero) return;
+    hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
+    hero.querySelector("h2").textContent = banners[currentBanner].text;
+    currentBanner = (currentBanner + 1) % banners.length;
+  }
+
+  showBanner();
+  setInterval(showBanner, 5000);
 }
-
-showBanner();
-setInterval(showBanner, 5000);
-
-}
-
 
 // Lazy Load imagens
 function lazyLoadImages(){
@@ -159,14 +177,10 @@ function showPix(){
   const pixModal = document.getElementById("pix-modal");
   if(!pixModal) return;
 
-  // Preenche o campo de texto com o código PIX
   const pixField = document.getElementById("pixCode");
   if(pixField) pixField.value = PIX_CODE;
 
-  // Gera QR Code
   renderPixQRCode();
-
-  // Abre modal
   pixModal.style.display = "flex";
 }
 function copiarPix() {
@@ -176,7 +190,6 @@ function copiarPix() {
   document.execCommand("copy");
   alert("Código PIX copiado!");
 }
-
 function closePix(){
   const pixModal=document.getElementById("pix-modal");
   if(pixModal) pixModal.style.display="none";
@@ -195,13 +208,11 @@ function setupEvents(){
     showPix();
   });
 
-  // Busca
   document.getElementById("search").addEventListener("input", e=>{
     const q = e.target.value.toLowerCase();
     renderProducts(products.filter(p=>`${p.title} ${p.desc}`.toLowerCase().includes(q)));
   });
 
-  // Ordenação
   document.getElementById("sort").addEventListener("change", e=>{
     let arr=[...products];
     if(e.target.value==="price-asc") arr.sort((a,b)=>a.price-b.price);
@@ -210,7 +221,6 @@ function setupEvents(){
     renderProducts(arr);
   });
 
-  // Filtros
   const categorySelect = document.getElementById("category");
   const promoCheckbox = document.getElementById("promo-only");
 
@@ -225,7 +235,6 @@ function setupEvents(){
   categorySelect.addEventListener("change", applyFilters);
   promoCheckbox.addEventListener("change", applyFilters);
 
-  // Tema
   const themeToggle = document.getElementById("theme-toggle");
   themeToggle.addEventListener("click",()=>{
     const body=document.body;
@@ -259,7 +268,15 @@ function sendWhatsappOrder(){
   });
 
   const total = cart.reduce((s,it) => s + products.find(p=>p.id===it.id).price*it.qty,0);
-  msg += `%0ATotal: R$ ${total.toFixed(2)}%0A%0A`;
+
+  // Aplica desconto progressivo no WhatsApp também
+  let desconto = 0;
+  const itemCount = cart.reduce((s,i)=>s+i.qty,0);
+  if(itemCount >= 5) desconto = total*0.30;
+  else if(itemCount >=3) desconto = total*0.15;
+  const totalFinal = total - desconto;
+
+  msg += `%0ATotal: R$ ${totalFinal.toFixed(2)}%0A%0A`;
 
   if(hasPreOrder){
     msg += "Este pedido é uma encomenda. Aguardo confirmação do prazo de chegada.";
@@ -276,8 +293,6 @@ function sendWhatsappOrder(){
   alert("Pedido enviado! Aguarde o contato via WhatsApp.");
 }
 
-
 // Persistência
 function saveCart(){localStorage.setItem("cart",JSON.stringify(cart));}
 function loadCart(){return JSON.parse(localStorage.getItem("cart")||"[]");}
-
