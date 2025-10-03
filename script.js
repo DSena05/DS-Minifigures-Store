@@ -35,22 +35,7 @@ const banners = [
   { img: "fundo.png", text: "Kits Especiais DS Minifigs!" }
 ];
 
-let currentBanner = 0; // global
-
-function initHeroBanner(){
-  const hero = document.getElementById("hero");
-  
-  function showBanner(){
-    if(!hero) return;
-    hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
-    hero.querySelector("h2").textContent = banners[currentBanner].text;
-    currentBanner = (currentBanner + 1) % banners.length;
-  }
-
-  showBanner();
-  setInterval(showBanner, 5000);
-}
-
+let currentBanner = 0; // variável global
 
 // ===============================
 // Inicialização
@@ -134,7 +119,6 @@ function addToCart(id) {
   if(cartModal) cartModal.classList.add("show");
 }
 
-
 // ===============================
 // Atualiza carrinho com desconto progressivo
 // ===============================
@@ -207,17 +191,17 @@ function calcularDesconto(itemCount, total) {
 // ===============================
 function initHeroBanner(){
   const hero = document.getElementById("hero");
-  let currentBanner = 0;
+  if(!hero) return;
 
   function showBanner(){
-    if(!hero) return;
     hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
-    hero.querySelector("h2").textContent = banners[currentBanner].text;
+    const h2 = hero.querySelector("h2");
+    if(h2) h2.textContent = banners[currentBanner].text;
     currentBanner = (currentBanner + 1) % banners.length;
   }
 
-  showBanner();
-  setInterval(showBanner, 5000);
+  showBanner(); // mostra o primeiro banner
+  setInterval(showBanner, 5000); // troca a cada 5 segundos
 }
 
 // ===============================
@@ -228,7 +212,6 @@ function lazyLoadImages(){
   imgs.forEach(img=>{
     const src=img.dataset.src;
     if(src){
-      // Placeholder blur
       img.style.filter = "blur(6px)";
       img.src=src;
       img.onload=()=>{
