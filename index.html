@@ -44,30 +44,38 @@
     </section>
 
     <section id="catalog" class="catalog">
-      <div class="catalog-header">
-        <h3>Catálogo</h3>
-        <div class="filters">
-          <label for="sort">Ordenar:</label>
-          <select id="sort">
-            <option value="default">Padrão</option>
-            <option value="price-asc">Preço ↑</option>
-            <option value="price-desc">Preço ↓</option>
-            <option value="name-asc">Nome A→Z</option>
-          </select>
-          <label for="category">Categoria:</label>
-          <select id="category">
-            <option value="all">Todas</option>
-            <option value="Animes">Animes</option>
-            <option value="Star Wars">Star Wars</option>
-            <option value="Marvel">Marvel</option>
-            <option value="DC">DC</option>
-          </select>
-          <label for="promo-only">
-            <input type="checkbox" id="promo-only" /> Só promoções
-          </label>
-        </div>
-      </div>
-      <div id="product-grid" class="product-grid">
+  <div class="catalog-header">
+    <h3>Catálogo</h3>
+    
+    <!-- Mensagem de desconto progressivo -->
+    <p class="discount-info">
+      Na compra de 3 produtos ou mais: 15% de desconto<br>
+      Na compra de 5 produtos ou mais: 30% de desconto
+    </p>
+    
+    <div class="filters">
+      <label for="sort">Ordenar:</label>
+      <select id="sort">
+        <option value="default">Padrão</option>
+        <option value="price-asc">Preço ↑</option>
+        <option value="price-desc">Preço ↓</option>
+        <option value="name-asc">Nome A→Z</option>
+      </select>
+      <label for="category">Categoria:</label>
+      <select id="category">
+        <option value="all">Todas</option>
+        <option value="Animes">Animes</option>
+        <option value="Star Wars">Star Wars</option>
+        <option value="Marvel">Marvel</option>
+        <option value="DC">DC</option>
+      </select>
+      <label for="promo-only">
+        <input type="checkbox" id="promo-only" /> Só promoções
+      </label>
+    </div>
+  </div>
+  <div id="product-grid" class="product-grid">
+
         <!-- Produtos via JS -->
       </div>
     </section>
