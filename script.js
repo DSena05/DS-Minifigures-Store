@@ -35,8 +35,6 @@ const banners = [
   { img: "fundo.png", text: "Kits Especiais DS Minifigs!" }
 ];
 
-let currentBanner = 0; // variável global
-
 // ===============================
 // Inicialização
 // ===============================
@@ -61,7 +59,7 @@ function renderProducts(list) {
     card.className = "card";
     card.style.position = "relative";
 
-    // Badge de estoque colorida
+    // Badge de estoque
     let stockBadge = "";
     if(p.stock > 0) stockBadge = `<span style="color:green;font-weight:bold;">Disponível</span>`;
     else if(p.preOrder) stockBadge = `<span style="color:orange;font-weight:bold;">Pré-venda</span>`;
@@ -144,10 +142,10 @@ function updateCart() {
     list.appendChild(li);
   });
 
-  // ===============================
   // Desconto progressivo dinâmico
-  // ===============================
-  let desconto = calcularDesconto(itemCount, total);
+  let desconto = 0;
+  if(itemCount >= 5) desconto = total*0.30;
+  else if(itemCount >=3) desconto = total*0.15;
   const totalFinal = total - desconto;
 
   const totalDiv = document.getElementById("cart-total");
@@ -161,47 +159,32 @@ function updateCart() {
     totalDiv.textContent = total.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
   }
 
-  // Atualiza valor no botão checkout
-  const checkoutBtn = document.getElementById("checkout");
-  if(checkoutBtn) checkoutBtn.textContent = `Finalizar - R$ ${totalFinal.toFixed(2).replace(".",",")}`;
-
   document.querySelectorAll(".remove").forEach(btn=>btn.addEventListener("click", e=>{
-    cart=cart.filter(i=>i.id!==e.target.dataset.id);
+    cart = cart.filter(i=>i.id!==e.target.dataset.id);
     saveCart();
     updateCart();
   }));
 }
 
 // ===============================
-// Função de desconto dinâmica
-// ===============================
-function calcularDesconto(itemCount, total) {
-  const descontoTabela = [
-    { min: 5, perc: 0.30 },
-    { min: 3, perc: 0.15 }
-  ];
-  for(let d of descontoTabela){
-    if(itemCount >= d.min) return total*d.perc;
-  }
-  return 0;
-}
-
-// ===============================
 // Hero/banner rotativo
 // ===============================
-function initHeroBanner(){
+function initHeroBanner() {
   const hero = document.getElementById("hero");
   if(!hero) return;
 
-  function showBanner(){
-    hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
+  let currentBanner = 0;
+
+  function showBanner() {
+    if(!hero) return;
     const h2 = hero.querySelector("h2");
     if(h2) h2.textContent = banners[currentBanner].text;
+    hero.style.backgroundImage = `url(${banners[currentBanner].img})`;
     currentBanner = (currentBanner + 1) % banners.length;
   }
 
-  showBanner(); // mostra o primeiro banner
-  setInterval(showBanner, 5000); // troca a cada 5 segundos
+  showBanner();
+  setInterval(showBanner, 5000);
 }
 
 // ===============================
@@ -228,13 +211,12 @@ function lazyLoadImages(){
 function showPix(){
   const pixModal = document.getElementById("pix-modal");
   if(!pixModal) return;
-
   const pixField = document.getElementById("pixCode");
   if(pixField) pixField.value = PIX_CODE;
-
   renderPixQRCode();
   pixModal.style.display = "flex";
 }
+
 function copiarPix() {
   const pixCode = document.getElementById("pixCode");
   pixCode.select();
@@ -242,6 +224,7 @@ function copiarPix() {
   document.execCommand("copy");
   alert("Código PIX copiado!");
 }
+
 function closePix(){
   const pixModal=document.getElementById("pix-modal");
   if(pixModal) pixModal.style.display="none";
@@ -253,10 +236,15 @@ function closePix(){
 function setupEvents(){
   document.getElementById("cart-btn").addEventListener("click",()=>document.getElementById("cart-modal").classList.add("show"));
   document.getElementById("close-cart").addEventListener("click",()=>document.getElementById("cart-modal").classList.remove("show"));
-  document.getElementById("clear-cart").addEventListener("click",()=>{cart=[]; saveCart(); updateCart();});
-  document.getElementById("checkout").addEventListener("click",()=>{if(cart.length===0) return alert("Carrinho vazio"); document.getElementById("cart-modal").classList.remove("show"); showPix();});
+  document.getElementById("clear-cart").addEventListener("click",()=>{
+    cart=[]; saveCart(); updateCart();
+  });
+  document.getElementById("checkout").addEventListener("click",()=>{
+    if(cart.length===0) return alert("Carrinho vazio");
+    document.getElementById("cart-modal").classList.remove("show");
+    showPix();
+  });
 
-  // Filtros e pesquisa
   document.getElementById("search").addEventListener("input", e=>{
     const q = e.target.value.toLowerCase();
     renderProducts(products.filter(p=>`${p.title} ${p.desc}`.toLowerCase().includes(q)));
@@ -272,26 +260,18 @@ function setupEvents(){
 
   const categorySelect = document.getElementById("category");
   const promoCheckbox = document.getElementById("promo-only");
-  const priceMin = document.getElementById("price-min");
-  const priceMax = document.getElementById("price-max");
 
   function applyFilters(){
     let arr = [...products];
     const cat = categorySelect.value;
     if(cat!=="all") arr = arr.filter(p=>p.category===cat);
     if(promoCheckbox.checked) arr = arr.filter(p=>p.promo);
-    const min = parseFloat(priceMin.value)||0;
-    const max = parseFloat(priceMax.value)||Infinity;
-    arr = arr.filter(p=>p.price >= min && p.price <= max);
     renderProducts(arr);
   }
 
   categorySelect.addEventListener("change", applyFilters);
   promoCheckbox.addEventListener("change", applyFilters);
-  priceMin.addEventListener("input", applyFilters);
-  priceMax.addEventListener("input", applyFilters);
 
-  // Theme toggle
   const themeToggle = document.getElementById("theme-toggle");
   themeToggle.addEventListener("click",()=>{
     const body=document.body;
@@ -301,8 +281,12 @@ function setupEvents(){
     themeToggle.textContent=theme==="dark"?"🌙":"☀️";
     localStorage.setItem("theme",theme);
   });
+
   const savedTheme=localStorage.getItem("theme");
-  if(savedTheme){document.body.classList.add(savedTheme); themeToggle.textContent=savedTheme==="dark"?"🌙":"☀️";}
+  if(savedTheme){
+    document.body.classList.add(savedTheme);
+    themeToggle.textContent=savedTheme==="dark"?"🌙":"☀️";
+  }
 }
 
 // ===============================
@@ -328,13 +312,21 @@ function sendWhatsappOrder(){
   });
 
   const total = cart.reduce((s,it) => s + products.find(p=>p.id===it.id).price*it.qty,0);
+
+  // Desconto progressivo no WhatsApp também
+  let desconto = 0;
   const itemCount = cart.reduce((s,i)=>s+i.qty,0);
-  const desconto = calcularDesconto(itemCount, total);
+  if(itemCount >= 5) desconto = total*0.30;
+  else if(itemCount >=3) desconto = total*0.15;
   const totalFinal = total - desconto;
 
   msg += `%0ATotal: R$ ${totalFinal.toFixed(2)}%0A%0A`;
-  if(hasPreOrder) msg += "Este pedido é uma encomenda. Aguardo confirmação do prazo de chegada.";
-  else msg += "Pagamento via PIX já realizado.";
+
+  if(hasPreOrder){
+    msg += "Este pedido é uma encomenda. Aguardo confirmação do prazo de chegada.";
+  } else {
+    msg += "Pagamento via PIX já realizado.";
+  }
 
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
 
