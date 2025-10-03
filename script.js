@@ -10,10 +10,12 @@ const products = [
   { id: "p2", title: "Spider Gwen", price: 15.0, oldPrice: 19.99, promo: true, desc: "Capacete e Base", category: "Marvel", stock: 1, img: "https://i.ebayimg.com/images/g/Ae8AAOSwXpdmKBBK/s-l1200.jpg" },
   { id: "p3", title: "Mulher Invisivel", price: 19.99, desc: "Effect e Bebê Franklin", category: "Marvel", stock: 1, img: "https://brixtoy.com/wp-content/uploads/2025/07/Marvel-Invisible-Woman-First-Steps-GH0379-Minifigures.png" },
   { id: "p4", title: "Capitão America", price: 19.99, desc: "Escudo e Capacete", category: "Marvel", stock: 1, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPJo_atLL09rRfb5L6iZHGR2DF3ZVpaHJFGw&s" },
-  { id: "p5", title: "Ichigo Kurosaki", price: 25.0, desc: "Figura especial sob encomenda", category: "Animes", stock: 0, preOrder: true, arrivalTime: "3 semanas-1 Mês", img: "https://brixtoy.com/wp-content/uploads/2023/11/Anime-Bleach-Ichigo-Kurosaki-WM2567-Minifigures-300x300.jpg" },
+  { id: "p5", title: "Ichigo Kurosaki", price: 20.0, desc: "Figura especial sob encomenda", category: "Animes", stock: 0, preOrder: true, arrivalTime: "3 semanas -1  Mês", img: "https://brixtoy.com/wp-content/uploads/2023/11/Anime-Bleach-Ichigo-Kurosaki-WM2567-Minifigures-300x300.jpg" },
   { id: "p6", title: "Tocha Humana", price: 25.00, desc: "Effect e Base de Fogo", category: "Marvel", stock: 1, img: "https://brixtoy.com/wp-content/uploads/2025/07/Marvel-Human-Torch-First-Steps-GH0384-Minifigures.png" },
-  { id: "p7", title: "Doutor Destino", price: 25.0, desc: "Figura especial sob encomenda", category: "Marvel", stock: 0, preOrder: true, arrivalTime: "3 semanas-1 Mês", img: "https://brixtoy.com/wp-content/uploads/2025/08/Marvel-Dr-Doom-SDCC-TV1104-Minifigures.jpg" },
-  { id: "p8", title: "Darth Vader", price: 25.0, desc: "Figura especial sob encomenda", category: "Star Wars", stock: 0, preOrder: true, arrivalTime: "3 semanas-1 Mês", img: "https://shoplineimg.com/5ae29b268d1db9dde9005d08/673718ba8d69d9000abca8e8/800x.jpg?" },
+  { id: "p7", title: "Doutor Destino", price: 22.0, desc: "Figura especial sob encomenda", category: "Marvel", stock: 0, preOrder: true, arrivalTime: "3 semanas- 1  Mês", img: "https://brixtoy.com/wp-content/uploads/2025/08/Marvel-Dr-Doom-SDCC-TV1104-Minifigures.jpg" },
+  { id: "p8", title: "Darth Vader", price: 25.0, desc: "Figura especial sob encomenda", category: "Star Wars", stock: 0, preOrder: true, arrivalTime: "3 semanas - 1 Mês", img: "https://shoplineimg.com/5ae29b268d1db9dde9005d08/673718ba8d69d9000abca8e8/800x.jpg?" },
+  { id: "p9", title: "Hulk BigFigure", price: 29.99, desc: "Bigfigure Especial a Pronta Entrega", category:"Marvel", stock: 1, img: ""},
+  { id: "p10", title: "Batman Ben Affleck", price: 25.00, desc: "Capa de Plastico e lança de kriptonita", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 1 Mês", img: ""},
 ];
 
 // Carrinho
