@@ -18,7 +18,7 @@ const products = [
   { id: "p7", title: "Doutor Destino", price: 22.0, desc: "Figura especial sob encomenda", category: "Marvel", stock: 0, preOrder: true, arrivalTime: "3 semanas- 1  Mês", img: "https://brixtoy.com/wp-content/uploads/2025/08/Marvel-Dr-Doom-SDCC-TV1104-Minifigures.jpg" },
   { id: "p8", title: "Darth Vader", price: 25.0, desc: "Figura especial sob encomenda", category: "Star Wars", stock: 0, preOrder: true, arrivalTime: "3 semanas - 1 Mês", img: "https://shoplineimg.com/5ae29b268d1db9dde9005d08/673718ba8d69d9000abca8e8/800x.jpg?" },
   { id: "p9", title: "Hulk BigFigure", price: 29.99, desc: "Bigfigure Especial a Pronta Entrega", category:"Marvel", stock: 1, img: "hulk.png" },
-  { id: "p10", title: "Batman HellBat", price: 25.00, desc: "Capa de Plastico e lança de kriptonita", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 1 Mês", img: "hellbat.png" },
+  { id: "p10", title: "Batman HellBat", price: 25.00, desc: "Armadura HellBat e armas especiais", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 1 Mês", img: "hellbat.png" },
 ];
 
 // ===============================
