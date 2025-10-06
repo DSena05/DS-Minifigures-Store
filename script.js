@@ -60,7 +60,7 @@ function renderProducts(list) {
     // Badge de estoque
     let stockBadge = "";
     if(p.stock > 0) stockBadge = `<span style="color:green;font-weight:bold;">Disponível</span>`;
-    else if(p.preOrder) stockBadge = `<span style="color:orange;font-weight:bold;">Pré-venda</span>`;
+    else if(p.preOrder) stockBadge = `<span style="color:orange;font-weight:bold;">Encomendar</span>`;
     else stockBadge = `<span style="color:red;font-weight:bold;">Esgotado</span>`;
 
     card.innerHTML = `
