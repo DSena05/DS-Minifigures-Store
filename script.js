@@ -17,11 +17,11 @@ const products = [
   { id: "p6", title: "Darth Vader", price: 25.0, desc: "Figura especial sob encomenda", category: "Star Wars", stock: 0, preOrder: true, arrivalTime: "3 semanas - 6 semanas", img: "https://shoplineimg.com/5ae29b268d1db9dde9005d08/673718ba8d69d9000abca8e8/800x.jpg?" },
   { id: "p7", title: "Hulk BigFigure", price: 29.99, desc: "Bigfigure Especial a Pronta Entrega", category:"Marvel", stock: 1, img: "hulk.png" },
   { id: "p8", title: "Batman HellBat", price: 25.00, desc: "Armadura HellBat e armas especiais", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "hellbat.png" },
-  { id: "p9", title: "Galactus", price: 35.00, desc: "Galactus de 9CM", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "Galactus" },
-  { id: "p10", title: "Superman", price: 22.00, desc: "Superman e Krypto", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "Superman" },
-  { id: "p11", title: "Professor Xavier", price: 27.00, desc: "Cadeira e 2 heads", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "xavier" },
-  { id: "p12", title: "Sung Jin-Woo", price: 27.00, desc: "Capa de Plástico e Duas Espadas", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "sung jin-Woo" },
-  { id: "p13", title: "Roronoa Zoro", price: 27.00, desc: "Braço Articulado com 3 espadas com effect", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "Zoro" },
+  { id: "p9", title: "Galactus", price: 35.00, desc: "Galactus de 9CM", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "galactus.png" },
+  { id: "p10", title: "Superman", price: 22.00, desc: "Superman e Krypto", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "superman.png" },
+  { id: "p11", title: "Professor Xavier", price: 27.00, desc: "Cadeira e 2 heads", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "xavier.png" },
+  { id: "p12", title: "Sung Jin-Woo", price: 27.00, desc: "Capa de Plástico e Duas Espadas", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "jinwoo.png" },
+  { id: "p13", title: "Roronoa Zoro", price: 27.00, desc: "Braço Articulado com 3 espadas com effect", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "zoro.png" },
 ];
 
 
