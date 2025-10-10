@@ -22,6 +22,8 @@ const products = [
   { id: "p11", title: "Professor Xavier", price: 27.00, desc: "Cadeira e 2 heads", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "xavier.png" },
   { id: "p12", title: "Sung Jin-Woo", price: 27.00, desc: "Capa de Plástico e Duas Espadas", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "jinwoo.png" },
   { id: "p13", title: "Roronoa Zoro", price: 27.00, desc: "Braço Articulado com 3 espadas com effect", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "zoro.png" },
+  { id: "p14", title: "Batman The Dark Knight", price: 19.99, desc: "Capa de Plástico", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "batman1.png" },
+  { id: "p15", title: "Coringa Heath Ledger", price: 19.99, desc: "Arma e Cartas", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "coringa.png" },
 ];
 
 
