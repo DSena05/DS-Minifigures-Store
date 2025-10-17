@@ -40,6 +40,7 @@ const products = [
   { id: "p29", title: "O Coisa", price: 22.00, desc: "Braço Articulado com Opção de Escolha de Corpo", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico4.png"},
   { id: "p30", title: "Surfista Prateado (Norrin Radd)", price: 21.00, desc: "Braço Articulado com Prancha e Pernas especiais" , category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico5.png" },
   { id: "p31", title: "Surfista Prateada(Shalla-Bal)", price: 21.00, desc: "Braço Articulado com Prancha e Pernas especiais", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico6.png" },
+  { id: "p32", title: "Tocha Humana", price: 25.00, desc: "Corpo de Fogo e Base Effect de Fogo", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico7.png" },
     
 ];
 
