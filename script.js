@@ -42,8 +42,7 @@ const products = [
   { id: "p31", title: "Surfista Prateada(Shalla-Bal)", price: 21.00, desc: "Braço Articulado com Prancha e Pernas especiais", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico6.png" },
   { id: "p32", title: "Tocha Humana", price: 25.00, desc: "Corpo de Fogo e Base Effect de Fogo", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico7.png" },
   { id: "p33", title: "Thanos BigFigure", price: 35.00, desc: "Armadura, Lança e Manopla com as joias", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "thanos.png" },
-    
-];
+  ];
 
 
 // ===============================
