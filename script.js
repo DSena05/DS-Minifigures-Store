@@ -31,7 +31,7 @@ const products = [
   { id: "p20", title: "Deadpool", price: 19.99, desc: "2 Katanas e 2 Pistolas", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "deadpool.png" },
   { id: "p21", title: "Wolverine", price: 19.99, desc: "Máscara Clássica e Garras", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "wolverine.png" },
   { id: "p22", title: "Boba Fett", price: 19.99, desc: "Armas e Armadura Mandaloriana", category: "Star Wars", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "Boba.png" },
-  { id: "p23", title: "Anakin Skywalker (Sith)", price: 25.00, desc: "Sabre de Luz e Capa preta", category: "Star Wars", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "Anakin.png" },
+  { id: "p23", title: "Anakin Skywalker (Sith)", price: 25.00, desc: "Sabre de Luz e Capa preta", category: "Star Wars", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "anakin.png" },
   { id: "p24", title: "Obi-wan Kenobi", price: 25.00, desc: "Sabre de Luz e Capa Marrom Jedi", category: "Star Wars", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "obiwan.png" },
   { id: "p25", title: "Mandaloriano and Grogu", price: 35.00, desc: "Kit Esecial Mandaloriano e Grogu", category: ["Kits", "Star Wars"], stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "mandoegrogu.png" },
   { id: "p26", title: "Sr Fantástico", price: 25.00, desc: "Braço Articulado com efeito elastico", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "fantastico1.png" },
