@@ -26,7 +26,7 @@ const products = [
   { id: "p15", title: "Quarteto Fantástico", price: 65.00, desc: "Equipe Quarteto Fantástico Completo com Acessórios e 1 surfista(Escolha)", category: ["Kits", "Marvel"], stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "quarteto.png" },
   { id: "p16", title: "Luffy Gear 5", price: 25.00, desc: "Braço elastico com effect e desenho de placa", category: "Animes", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "luffy.png" },
   { id: "p17", title: "Homem de Ferro", price: 19.99, desc: "Armadura e Equipamentos", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "ironman.png" },
-  { id: "p18", title: "Homem Aranha", price: 22.00, desc: "Mascara pa por na mão e rosto de peter parker", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "miranha.png" },
+  { id: "p18", title: "Homem Aranha", price: 22.00, desc: "Mascara para por na mão e rosto de peter parker", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "miranha.png" },
   { id: "p19", title: "The Flash", price: 19.99, desc: "Máscara detalhada e effect de raio", category: "DC", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "flash.png" },
   { id: "p20", title: "Deadpool", price: 19.99, desc: "2 Katanas e 2 Pistolas", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "deadpool.png" },
   { id: "p21", title: "Wolverine", price: 19.99, desc: "Máscara Clássica e Garras", category: "Marvel", stock: 0, preOrder:true, arrivalTime: "3 semanas - 6 semanas", img: "wolverine.png" },
